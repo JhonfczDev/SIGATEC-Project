@@ -8,7 +8,7 @@ package com.sigatec;
  *
  * @author USUARIO
  */
-public class SIGATEC {
+public class Main {
 
     public static void main(String[] args) {
         System.out.println("Hello World!");
