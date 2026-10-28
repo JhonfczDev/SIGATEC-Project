@@ -5,7 +5,7 @@ import java.util.Optional;
 import com.sigatec.model.Product;
 import com.sigatec.repository.ProductRepository;
 
-public final class InMemoryProductRepository extends InMemoryRepository<Product, String>
+public class InMemoryProductRepository extends InMemoryRepository<Product, String>
         implements ProductRepository {
 
     @Override
