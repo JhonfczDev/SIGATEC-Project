@@ -7,7 +7,7 @@ import com.sigatec.model.ClaimStatus;
 import com.sigatec.repository.ClaimRepository;
 import com.sigatec.repository.SequentialIdGenerator;
 
-public final class InMemoryClaimRepository extends InMemoryRepository<Claim, String>
+public class InMemoryClaimRepository extends InMemoryRepository<Claim, String>
         implements ClaimRepository {
 
     private final SequentialIdGenerator idGenerator = new SequentialIdGenerator("REC-");
@@ -15,6 +15,13 @@ public final class InMemoryClaimRepository extends InMemoryRepository<Claim, Str
     @Override
     public String nextId() {
         return idGenerator.next();
+    }
+
+    /** Also makes the id sequence continue after any stored id, so new ids never collide. */
+    @Override
+    protected void register(Claim claim) {
+        super.register(claim);
+        idGenerator.observe(claim.getId());
     }
 
     @Override

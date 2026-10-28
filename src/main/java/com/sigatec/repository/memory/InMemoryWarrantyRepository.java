@@ -6,7 +6,7 @@ import com.sigatec.model.Warranty;
 import com.sigatec.repository.SequentialIdGenerator;
 import com.sigatec.repository.WarrantyRepository;
 
-public final class InMemoryWarrantyRepository extends InMemoryRepository<Warranty, String>
+public class InMemoryWarrantyRepository extends InMemoryRepository<Warranty, String>
         implements WarrantyRepository {
 
     private final SequentialIdGenerator idGenerator = new SequentialIdGenerator("GAR-");
@@ -14,6 +14,13 @@ public final class InMemoryWarrantyRepository extends InMemoryRepository<Warrant
     @Override
     public String nextId() {
         return idGenerator.next();
+    }
+
+    /** Also makes the id sequence continue after any stored id, so new ids never collide. */
+    @Override
+    protected void register(Warranty warranty) {
+        super.register(warranty);
+        idGenerator.observe(warranty.getId());
     }
 
     @Override
