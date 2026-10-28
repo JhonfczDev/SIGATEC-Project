@@ -46,7 +46,7 @@ public final class FileStorage {
     /**
      * @param dataDirectory folder holding the data files (created if missing)
      * @param today         reference date used only to build the sample data on the first run
-     * @throws sigatec.repository.PersistenceException if a data file is unreadable or inconsistent
+     * @throws com.sigatec.repository.PersistenceException if a data file is unreadable or inconsistent
      */
     public static FileStorage open(Path dataDirectory, LocalDate today) {
         Objects.requireNonNull(dataDirectory, "dataDirectory must not be null");
