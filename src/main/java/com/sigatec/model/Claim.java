@@ -73,6 +73,11 @@ public final class Claim implements Identifiable<String> {
         return !status.isFinal();
     }
 
+    /** Whether this claim was filed against the warranty with the given id. */
+    public boolean isForWarranty(String warrantyId) {
+        return warrantyId != null && warranty.getId().equals(warrantyId.strip());
+    }
+
     private StatusChange lastChange() {
         return history.get(history.size() - 1);
     }
