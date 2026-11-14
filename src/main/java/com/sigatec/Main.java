@@ -6,6 +6,7 @@ import com.sigatec.service.ClaimService;
 import com.sigatec.service.CustomerService;
 import com.sigatec.service.ProductService;
 import com.sigatec.service.WarrantyService;
+import com.sigatec.ui.ConsoleUI;
 
 
 import java.nio.file.Path;
@@ -23,5 +24,9 @@ public class Main {
         
         WarrantyService warrantyService = new WarrantyService(storage.warranties(), productService, customerService, Clock.systemDefaultZone());
         ClaimService claimService = new ClaimService(storage.claims(), warrantyService, Clock.systemDefaultZone());
+        
+        ConsoleUI consoleUI = new ConsoleUI(productService, customerService, warrantyService, claimService);
+        
+        consoleUI.start();
     }
 }
