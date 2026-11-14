@@ -61,7 +61,7 @@ public class CustomerService implements CustomerFinder {
     }
 
     /** Removes the customer without checking warranties. Use {@link RemovalService} from outside. */
-    void delete(String document) {
+    public void delete(String document) {
         Customer customer = requireByDocument(document);
         customers.deleteById(customer.getId());
     }
