@@ -5,7 +5,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
-public class DashBoardView implements Screen {
+public class DashboardView implements Screen {
     @Override
     public Parent build() {
         Label title = new Label ("Panel Principal");
