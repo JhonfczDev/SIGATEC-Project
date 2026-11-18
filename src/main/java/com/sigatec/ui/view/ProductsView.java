@@ -94,7 +94,7 @@ public class ProductsView implements Screen {
         formCard.getStyleClass().add("card");
 
         //Main container: everything from top to bottom
-        VBox root = new VBox(20, title, subtitle, formCard, serialField, table);
+        VBox root = new VBox(20, title, subtitle, formCard, searchField, table);
         root.setPadding(new Insets(28, 32, 28, 32));
         VBox.setVgrow(table, Priority.ALWAYS);
 
