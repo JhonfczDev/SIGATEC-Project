@@ -12,6 +12,7 @@ public class MainApp extends Application {
         root.setCenter(new DashboardView().build());
 
         Scene scene = new Scene(root, 1280, 800);
+        scene.getStylesheets().add(MainApp.class.getResource("app.css").toExternalForm());
         stage.setTitle("SIGATEC");
         stage.setScene(scene);
         stage.show();
