@@ -60,4 +60,18 @@ public final class UiSupport {
         card.getStyleClass().add("card");
         return card;
     }
+
+    /** Creates the big page title. */
+    public static Label pageTitle(String text) {
+        Label label = new Label(text);
+        label.getStyleClass().add("page-title");
+        return label;
+    }
+
+    /** Creates the gray text under the page title. */
+    public static Label pageSubtitle(String text) {
+        Label label = new Label(text);
+        label.getStyleClass().add("page-subtitle");
+        return label;
+    }
 }

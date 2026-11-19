@@ -16,7 +16,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
-public final class CustomerView implements Screen {
+public final class CustomersView implements Screen {
     private final CustomerService customers;
     private final RemovalService removal;
 
@@ -34,7 +34,7 @@ public final class CustomerView implements Screen {
      */
     private Customer selected;
 
-    public CustomerView(CustomerService customers, RemovalService removal) {
+    public CustomersView(CustomerService customers, RemovalService removal) {
         this.customers = customers;
         this.removal = removal;
     }

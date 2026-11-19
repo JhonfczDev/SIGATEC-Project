@@ -4,7 +4,6 @@ import com.sigatec.repository.file.FileStorage;
 import com.sigatec.service.*;
 import com.sigatec.ui.view.*;
 import javafx.application.Application;
-import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -35,10 +34,11 @@ public class MainApp extends Application {
         RemovalService removal = new RemovalService(products, customers, warranties);
 
         // Screens are built once, then shown when the user clicks their button.
-        Parent dashboardNode = new DashboardView().build();
+        DashboardView dashboardView = new DashboardView(reports, products);
+        Parent dashboardNode = dashboardView.build();
         ProductsView productsView = new ProductsView(products, removal);
         Parent productsNode = productsView.build();
-        CustomerView customersView = new CustomerView(customers, removal);
+        CustomersView customersView = new CustomersView(customers, removal);
         Parent customersNode = customersView.build();
         WarrantiesView warrantiesView = new WarrantiesView(warranties);
         Parent warrantiesNode = warrantiesView.build();
@@ -48,50 +48,21 @@ public class MainApp extends Application {
         Parent reportsNode = reportsView.build();
 
         BorderPane root = new BorderPane();
+        root.getStyleClass().add("content");
         root.setCenter(dashboardNode);
-
-        Button dashboardButton = new Button("Panel principal");
-        dashboardButton.setMaxWidth(Double.MAX_VALUE);
-        dashboardButton.setOnAction(e -> root.setCenter(dashboardNode));
-
-        Button productsButton = new Button("Productos");
-        productsButton.setMaxWidth(Double.MAX_VALUE);
-        productsButton.setOnAction(e -> {
-            root.setCenter(productsNode);
-            productsView.refresh();
-        });
-
-        Button customersButton = new Button("Clientes");
-        customersButton.setMaxWidth(Double.MAX_VALUE);
-        customersButton.setOnAction(e -> {
-            root.setCenter(customersNode);
-            customersView.refresh();
-        });
-
-        Button warrantiesButton = new Button("Garantia");
-        warrantiesButton.setMaxWidth(Double.MAX_VALUE);
-        warrantiesButton.setOnAction(e -> {root.setCenter(warrantiesNode);
-            warrantiesView.refresh();
-        });
-
-        Button claimsButton = new Button("Reclamaciones");
-        claimsButton.setMaxWidth(Double.MAX_VALUE);
-        claimsButton.setOnAction(e -> {root.setCenter(claimsNode);
-            claimsView.refresh();
-        });
-
-        Button reportsButton = new Button("Reportes");
-        reportsButton.setMaxWidth(Double.MAX_VALUE);
-        reportsButton.setOnAction(e -> {root.setCenter(reportsNode);
-            reportsView.refresh();
-        });
 
         Label brand = new Label("SIGATEC");
         brand.getStyleClass().add("brand");
 
-        VBox sidebar = new VBox(8, brand, dashboardButton, productsButton, customersButton, warrantiesButton, claimsButton, reportsButton);
-        sidebar.setPadding(new Insets(24, 16, 24, 16));
-        sidebar.setPrefWidth(220);
+        VBox sidebar = new VBox(8,
+                brand,
+                navButton("Panel principal", dashboardNode, dashboardView, root),
+                navButton("Productos", productsNode, productsView, root),
+                navButton("Clientes", customersNode, customersView, root),
+                navButton("Garantías", warrantiesNode, warrantiesView, root),
+                navButton("Reclamaciones", claimsNode, claimsView, root),
+                navButton("Reportes", reportsNode, reportsView, root));
+        sidebar.getStyleClass().add("sidebar");
         root.setLeft(sidebar);
 
         Scene scene = new Scene(root, 1280, 800);
@@ -99,6 +70,18 @@ public class MainApp extends Application {
         stage.setTitle("SIGATEC");
         stage.setScene(scene);
         stage.show();
+    }
+
+    /** A sidebar button: clicking it shows the screen in the center and refreshes its data. */
+    private static Button navButton(String text, Parent node, Screen screen, BorderPane root) {
+        Button button = new Button(text);
+        button.getStyleClass().add("nav-button");
+        button.setMaxWidth(Double.MAX_VALUE);
+        button.setOnAction(e -> {
+            root.setCenter(node);
+            screen.refresh();
+        });
+        return button;
     }
 
     public static void main(String[] args) {
