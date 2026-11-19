@@ -1,15 +1,8 @@
 package com.sigatec.ui;
 
 import com.sigatec.repository.file.FileStorage;
-import com.sigatec.service.ClaimService;
-import com.sigatec.service.CustomerService;
-import com.sigatec.service.ProductService;
-import com.sigatec.service.RemovalService;
-import com.sigatec.service.WarrantyService;
-import com.sigatec.ui.view.ClaimsView;
-import com.sigatec.ui.view.ProductsView;
-import com.sigatec.ui.view.CustomerView;
-import com.sigatec.ui.view.WarrantiesView;
+import com.sigatec.service.*;
+import com.sigatec.ui.view.*;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
@@ -38,6 +31,7 @@ public class MainApp extends Application {
         CustomerService customers = new CustomerService(storage.customers());
         WarrantyService warranties = new WarrantyService(storage.warranties(), products, customers, clock);
         ClaimService claims = new ClaimService(storage.claims(), warranties, clock);
+        ReportService reports = new ReportService(warranties, claims);
         RemovalService removal = new RemovalService(products, customers, warranties);
 
         // Screens are built once, then shown when the user clicks their button.
@@ -50,6 +44,8 @@ public class MainApp extends Application {
         Parent warrantiesNode = warrantiesView.build();
         ClaimsView claimsView = new ClaimsView(claims);
         Parent claimsNode = claimsView.build();
+        ReportsView reportsView = new ReportsView(reports);
+        Parent reportsNode = reportsView.build();
 
         BorderPane root = new BorderPane();
         root.setCenter(dashboardNode);
@@ -84,10 +80,16 @@ public class MainApp extends Application {
             claimsView.refresh();
         });
 
+        Button reportsButton = new Button("Reportes");
+        reportsButton.setMaxWidth(Double.MAX_VALUE);
+        reportsButton.setOnAction(e -> {root.setCenter(reportsNode);
+            reportsView.refresh();
+        });
+
         Label brand = new Label("SIGATEC");
         brand.getStyleClass().add("brand");
 
-        VBox sidebar = new VBox(8, brand, dashboardButton, productsButton, customersButton, warrantiesButton, claimsButton);
+        VBox sidebar = new VBox(8, brand, dashboardButton, productsButton, customersButton, warrantiesButton, claimsButton, reportsButton);
         sidebar.setPadding(new Insets(24, 16, 24, 16));
         sidebar.setPrefWidth(220);
         root.setLeft(sidebar);

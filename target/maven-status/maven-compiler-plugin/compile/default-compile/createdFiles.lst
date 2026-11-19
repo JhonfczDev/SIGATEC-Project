@@ -1,0 +1,5 @@
+com\sigatec\Launcher.class
+com\sigatec\ui\Screen.class
+com\sigatec\ui\DashboardView.class
+com\sigatec\ui\MainApp.class
+com\sigatec\ui\UiSupport.class
