@@ -10,6 +10,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 
 import java.nio.file.Path;
@@ -51,8 +53,11 @@ public class MainApp extends Application {
         root.getStyleClass().add("content");
         root.setCenter(dashboardNode);
 
-        Label brand = new Label("SIGATEC");
-        brand.getStyleClass().add("brand");
+        Text siga = new Text("SIGA");
+        siga.getStyleClass().add("brand-siga");
+        Text tec = new Text("TEC");
+        tec.getStyleClass().add("brand-tec");
+        TextFlow brand = new TextFlow(siga, tec);
 
         VBox sidebar = new VBox(8,
                 brand,
