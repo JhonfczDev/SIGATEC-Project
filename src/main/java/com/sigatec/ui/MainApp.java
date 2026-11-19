@@ -6,6 +6,7 @@ import com.sigatec.service.CustomerService;
 import com.sigatec.service.ProductService;
 import com.sigatec.service.RemovalService;
 import com.sigatec.service.WarrantyService;
+import com.sigatec.ui.view.ClaimsView;
 import com.sigatec.ui.view.ProductsView;
 import com.sigatec.ui.view.CustomerView;
 import com.sigatec.ui.view.WarrantiesView;
@@ -47,6 +48,8 @@ public class MainApp extends Application {
         Parent customersNode = customersView.build();
         WarrantiesView warrantiesView = new WarrantiesView(warranties);
         Parent warrantiesNode = warrantiesView.build();
+        ClaimsView claimsView = new ClaimsView(claims);
+        Parent claimsNode = claimsView.build();
 
         BorderPane root = new BorderPane();
         root.setCenter(dashboardNode);
@@ -75,10 +78,16 @@ public class MainApp extends Application {
             warrantiesView.refresh();
         });
 
+        Button claimsButton = new Button("Reclamaciones");
+        claimsButton.setMaxWidth(Double.MAX_VALUE);
+        claimsButton.setOnAction(e -> {root.setCenter(claimsNode);
+            claimsView.refresh();
+        });
+
         Label brand = new Label("SIGATEC");
         brand.getStyleClass().add("brand");
 
-        VBox sidebar = new VBox(8, brand, dashboardButton, productsButton, customersButton, warrantiesButton);
+        VBox sidebar = new VBox(8, brand, dashboardButton, productsButton, customersButton, warrantiesButton, claimsButton);
         sidebar.setPadding(new Insets(24, 16, 24, 16));
         sidebar.setPrefWidth(220);
         root.setLeft(sidebar);
