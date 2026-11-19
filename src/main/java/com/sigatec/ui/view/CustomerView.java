@@ -16,7 +16,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
-public class CustomerView implements Screen {
+public final class CustomerView implements Screen {
     private final CustomerService customers;
     private final RemovalService removal;
 

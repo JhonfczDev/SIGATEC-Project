@@ -86,6 +86,10 @@ public class WarrantyService implements WarrantyFinder {
                 .toList();
     }
 
+    public List<Warranty> listAll(){
+        return warranties.findAll();
+    }
+
     private LocalDate today() {
         return LocalDate.now(clock);
     }

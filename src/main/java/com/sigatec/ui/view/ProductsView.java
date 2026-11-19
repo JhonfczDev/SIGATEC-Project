@@ -19,7 +19,7 @@ import javafx.scene.layout.VBox;
 
 import java.math.BigDecimal;
 
-public class ProductsView implements Screen {
+public final class ProductsView implements Screen {
     private final ProductService products;
     private final RemovalService removal;
 
