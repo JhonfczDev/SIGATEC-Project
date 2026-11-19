@@ -7,6 +7,7 @@ import com.sigatec.service.ProductService;
 import com.sigatec.service.RemovalService;
 import com.sigatec.service.WarrantyService;
 import com.sigatec.ui.view.ProductsView;
+import com.sigatec.ui.view.CustomerView;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
@@ -41,6 +42,8 @@ public class MainApp extends Application {
         Parent dashboardNode = new DashboardView().build();
         ProductsView productsView = new ProductsView(products, removal);
         Parent productsNode = productsView.build();
+        CustomerView customersView = new CustomerView(customers, removal);
+        Parent customersNode = customersView.build();
 
         BorderPane root = new BorderPane();
         root.setCenter(dashboardNode);
@@ -56,10 +59,17 @@ public class MainApp extends Application {
             productsView.refresh();
         });
 
+        Button customersButton = new Button("Clientes");
+        customersButton.setMaxWidth(Double.MAX_VALUE);
+        customersButton.setOnAction(e -> {
+            root.setCenter(customersNode);
+            customersView.refresh();
+        });
+
         Label brand = new Label("SIGATEC");
         brand.getStyleClass().add("brand");
 
-        VBox sidebar = new VBox(8, brand, dashboardButton, productsButton);
+        VBox sidebar = new VBox(8, brand, dashboardButton, productsButton, customersButton);
         sidebar.setPadding(new Insets(24, 16, 24, 16));
         sidebar.setPrefWidth(220);
         root.setLeft(sidebar);
