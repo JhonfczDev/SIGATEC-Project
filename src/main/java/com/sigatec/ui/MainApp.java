@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -72,6 +73,7 @@ public class MainApp extends Application {
 
         Scene scene = new Scene(root, 1280, 800);
         scene.getStylesheets().add(MainApp.class.getResource("app.css").toExternalForm());
+        stage.getIcons().add(new Image(MainApp.class.getResourceAsStream("icon.png")));
         stage.setTitle("SIGATEC");
         stage.setScene(scene);
         stage.show();
