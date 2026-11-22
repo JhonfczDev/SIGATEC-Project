@@ -19,6 +19,11 @@ C:\Users\elkin jimenez\IdeaProjects\SIGATEC-Project\src\main\java\com\sigatec\re
 C:\Users\elkin jimenez\IdeaProjects\SIGATEC-Project\src\main\java\com\sigatec\repository\file\FileWarrantyRepository.java
 C:\Users\elkin jimenez\IdeaProjects\SIGATEC-Project\src\main\java\com\sigatec\repository\file\RecordCodec.java
 C:\Users\elkin jimenez\IdeaProjects\SIGATEC-Project\src\main\java\com\sigatec\repository\file\TextFileStore.java
+C:\Users\elkin jimenez\IdeaProjects\SIGATEC-Project\src\main\java\com\sigatec\repository\jdbc\Database.java
+C:\Users\elkin jimenez\IdeaProjects\SIGATEC-Project\src\main\java\com\sigatec\repository\jdbc\JdbcClaimRepository.java
+C:\Users\elkin jimenez\IdeaProjects\SIGATEC-Project\src\main\java\com\sigatec\repository\jdbc\JdbcCustomerRepository.java
+C:\Users\elkin jimenez\IdeaProjects\SIGATEC-Project\src\main\java\com\sigatec\repository\jdbc\JdbcProductRepository.java
+C:\Users\elkin jimenez\IdeaProjects\SIGATEC-Project\src\main\java\com\sigatec\repository\jdbc\JdbcWarrantyRepository.java
 C:\Users\elkin jimenez\IdeaProjects\SIGATEC-Project\src\main\java\com\sigatec\repository\memory\InMemoryClaimRepository.java
 C:\Users\elkin jimenez\IdeaProjects\SIGATEC-Project\src\main\java\com\sigatec\repository\memory\InMemoryCustomerRepository.java
 C:\Users\elkin jimenez\IdeaProjects\SIGATEC-Project\src\main\java\com\sigatec\repository\memory\InMemoryProductRepository.java
@@ -40,7 +45,12 @@ C:\Users\elkin jimenez\IdeaProjects\SIGATEC-Project\src\main\java\com\sigatec\se
 C:\Users\elkin jimenez\IdeaProjects\SIGATEC-Project\src\main\java\com\sigatec\service\WarrantyFinder.java
 C:\Users\elkin jimenez\IdeaProjects\SIGATEC-Project\src\main\java\com\sigatec\service\WarrantyService.java
 C:\Users\elkin jimenez\IdeaProjects\SIGATEC-Project\src\main\java\com\sigatec\ui\ConsoleUI.java
-C:\Users\elkin jimenez\IdeaProjects\SIGATEC-Project\src\main\java\com\sigatec\ui\DashboardView.java
 C:\Users\elkin jimenez\IdeaProjects\SIGATEC-Project\src\main\java\com\sigatec\ui\MainApp.java
 C:\Users\elkin jimenez\IdeaProjects\SIGATEC-Project\src\main\java\com\sigatec\ui\Screen.java
 C:\Users\elkin jimenez\IdeaProjects\SIGATEC-Project\src\main\java\com\sigatec\ui\UiSupport.java
+C:\Users\elkin jimenez\IdeaProjects\SIGATEC-Project\src\main\java\com\sigatec\ui\view\ClaimsView.java
+C:\Users\elkin jimenez\IdeaProjects\SIGATEC-Project\src\main\java\com\sigatec\ui\view\CustomersView.java
+C:\Users\elkin jimenez\IdeaProjects\SIGATEC-Project\src\main\java\com\sigatec\ui\view\DashboardView.java
+C:\Users\elkin jimenez\IdeaProjects\SIGATEC-Project\src\main\java\com\sigatec\ui\view\ProductsView.java
+C:\Users\elkin jimenez\IdeaProjects\SIGATEC-Project\src\main\java\com\sigatec\ui\view\ReportsView.java
+C:\Users\elkin jimenez\IdeaProjects\SIGATEC-Project\src\main\java\com\sigatec\ui\view\WarrantiesView.java
