@@ -1,7 +1,9 @@
 package com.sigatec.ui;
 
 import com.sigatec.repository.file.FileStorage;
+import com.sigatec.repository.jdbc.JdbcCustomerRepository;
 import com.sigatec.repository.jdbc.JdbcProductRepository;
+import com.sigatec.repository.jdbc.JdbcWarrantyRepository;
 import com.sigatec.service.*;
 import com.sigatec.ui.view.*;
 import javafx.application.Application;
@@ -30,8 +32,9 @@ public class MainApp extends Application {
 
         // Services, created in the same order as in Main.
         ProductService products = new ProductService(new JdbcProductRepository());
-        CustomerService customers = new CustomerService(storage.customers());
-        WarrantyService warranties = new WarrantyService(storage.warranties(), products, customers, clock);
+        CustomerService customers = new CustomerService(new JdbcCustomerRepository());
+        WarrantyService warranties = new WarrantyService(new JdbcWarrantyRepository(new JdbcProductRepository(), new JdbcCustomerRepository()),
+                products, customers, clock);
         ClaimService claims = new ClaimService(storage.claims(), warranties, clock);
         ReportService reports = new ReportService(warranties, claims);
         RemovalService removal = new RemovalService(products, customers, warranties);
