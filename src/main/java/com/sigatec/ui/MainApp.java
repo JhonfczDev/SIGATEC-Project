@@ -1,13 +1,13 @@
 package com.sigatec.ui;
 
 import com.sigatec.repository.file.FileStorage;
+import com.sigatec.repository.jdbc.JdbcProductRepository;
 import com.sigatec.service.*;
 import com.sigatec.ui.view.*;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
@@ -29,7 +29,7 @@ public class MainApp extends Application {
         Clock clock = Clock.systemDefaultZone();
 
         // Services, created in the same order as in Main.
-        ProductService products = new ProductService(storage.products());
+        ProductService products = new ProductService(new JdbcProductRepository());
         CustomerService customers = new CustomerService(storage.customers());
         WarrantyService warranties = new WarrantyService(storage.warranties(), products, customers, clock);
         ClaimService claims = new ClaimService(storage.claims(), warranties, clock);

@@ -1,4 +1,4 @@
-package com.sigatec.repository.jbdc;
+package com.sigatec.repository.jdbc;
 
 import com.sigatec.repository.PersistenceException;
 
@@ -11,8 +11,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
-public final class DataBase {
-    private DataBase(){
+public final class Database {
+    private Database(){
     }
 
     // The only method other classes call: returns a ready-to-use connection.
@@ -32,7 +32,7 @@ public final class DataBase {
 
     // Reads db.properties from the SIGATEC folder inside the user's home directory.
     private static Properties loadConfig(){
-        Path path = Path.of(System.clearProperty("user.home"), "SIGATEC", "db.properties");
+        Path path = Path.of(System.getProperty("user.home"), "SIGATEC", "db.properties");
         Properties properties = new Properties();
 
         try(InputStream in = Files.newInputStream(path)){
