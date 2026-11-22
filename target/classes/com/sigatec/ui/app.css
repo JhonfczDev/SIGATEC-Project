@@ -1,0 +1,247 @@
+/* ===== Base ===== */
+.content { -fx-background-color: #f1f5f9; }
+
+/* Default button look. It must come BEFORE the specific button classes below,
+   because every Button has this class and later rules win. */
+.button {
+    -fx-background-color: white;
+    -fx-text-fill: #334155;
+    -fx-border-color: #cbd5e1;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 7 16 7 16;
+}
+.button:hover { -fx-background-color: #f1f5f9; }
+.button:disabled { -fx-opacity: 0.45; }
+.label { -fx-text-fill: #0f172a; }
+
+/* ===== Sidebar (dark navy, like the references) ===== */
+.sidebar {
+    -fx-background-color: #0f172a;
+    -fx-padding: 24 16 24 16;
+    -fx-pref-width: 240;
+}
+.brand { -fx-text-fill: #ffffff; -fx-font-size: 20px; -fx-font-weight: bold; }
+.brand-subtitle { -fx-text-fill: #7dd3fc; -fx-font-size: 12px; }
+
+/* Logo: "SIGA" white, "TEC" blue. A deep blue would vanish on the navy sidebar,
+   so this is a strong blue that still stands out. */
+.brand-siga { -fx-fill: #ffffff; -fx-font-size: 20px; -fx-font-weight: bold; }
+.brand-tec { -fx-fill: #2563eb; -fx-font-size: 20px; -fx-font-weight: bold; }
+.session-label { -fx-text-fill: #64748b; -fx-font-size: 12px; }
+
+/* All sidebar buttons share the sidebar color; hover shows a sky-blue border */
+.nav-button {
+    -fx-background-color: #0f172a;
+    -fx-text-fill: #cbd5e1;
+    -fx-alignment: center-left;
+    -fx-padding: 10 14 10 14;
+    -fx-background-radius: 10;
+    -fx-border-color: transparent;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+    -fx-font-size: 14px;
+}
+/* Hover, focus and press keep the dark background; only the border changes */
+.nav-button:hover,
+.nav-button:focused,
+.nav-button:pressed {
+    -fx-background-color: #0f172a;
+    -fx-border-color: #38bdf8;
+    -fx-text-fill: #ffffff;
+}
+.nav-button:disabled { -fx-opacity: 0.45; }
+.nav-selected { -fx-background-color: #1e293b; -fx-text-fill: #ffffff; -fx-font-weight: bold; }
+
+/* ===== Headings ===== */
+.page-title { -fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #0f172a; }
+.page-subtitle { -fx-font-size: 14px; -fx-text-fill: #64748b; }
+.section-title { -fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #0f172a; }
+.field-label { -fx-text-fill: #475569; -fx-font-size: 13px; -fx-font-weight: bold; }
+.muted { -fx-text-fill: #94a3b8; -fx-font-size: 13px; }
+.detail-title { -fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #0f172a; }
+.detail-value { -fx-font-size: 14px; -fx-text-fill: #0f172a; }
+.detail-step-title { -fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #0f172a; }
+
+/* ===== Cards ===== */
+.card {
+    -fx-background-color: white;
+    -fx-background-radius: 14;
+    -fx-border-color: #e2e8f0;
+    -fx-border-radius: 14;
+    -fx-border-width: 1;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.05), 12, 0, 0, 2);
+}
+/* Highlighted KPI card (like "Por vencer SLA" in the reference) */
+.kpi-card-alert {
+    -fx-background-color: #fff7ed;
+    -fx-border-color: #fdba74;
+}
+.kpi-caption { -fx-text-fill: #475569; -fx-font-size: 13px; }
+.kpi-value { -fx-font-size: 34px; -fx-font-weight: bold; -fx-text-fill: #0f172a; }
+.kpi-value-alert { -fx-font-size: 34px; -fx-font-weight: bold; -fx-text-fill: #c2410c; }
+.kpi-note { -fx-font-size: 12px; -fx-text-fill: #64748b; }
+.kpi-note-ok { -fx-text-fill: #15803d; }
+.kpi-note-warn { -fx-text-fill: #dc2626; }
+
+/* ===== Inputs ===== */
+.text-field {
+    -fx-background-color: white;
+    -fx-border-color: #cbd5e1;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 7 10 7 10;
+    -fx-prompt-text-fill: #94a3b8;
+}
+.text-field:focused {
+    -fx-border-color: #1e3a8a;
+    -fx-effect: dropshadow(gaussian, rgba(30, 58, 138, 0.2), 8, 0, 0, 0);
+}
+
+/* ===== Buttons ===== */
+/* Main action: dark blue */
+.primary-button {
+    -fx-background-color: #1e3a8a;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 8 18 8 18;
+    -fx-effect: dropshadow(gaussian, rgba(30, 58, 138, 0.25), 8, 0, 0, 2);
+}
+.primary-button:hover { -fx-background-color: #172554; }
+.primary-button:pressed { -fx-background-color: #0f1a3d; }
+
+
+/* Outline dark blue: "Guardar" */
+.outline-button {
+    -fx-background-color: white;
+    -fx-text-fill: #1e3a8a;
+    -fx-font-weight: bold;
+    -fx-border-color: #1e3a8a;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 7 16 7 16;
+}
+.outline-button:hover { -fx-background-color: #eff6ff; }
+
+/* Green: approve / resolve */
+.success-button {
+    -fx-background-color: #16a34a;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 8 16 8 16;
+}
+.success-button:hover { -fx-background-color: #15803d; }
+
+/* Outline red: reject */
+.reject-button {
+    -fx-background-color: white;
+    -fx-text-fill: #b91c1c;
+    -fx-font-weight: bold;
+    -fx-border-color: #fca5a5;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 8 16 8 16;
+}
+.reject-button:hover { -fx-background-color: #fef2f2; }
+
+.danger-button {
+    -fx-background-color: #dc2626;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 8 18 8 18;
+}
+.danger-button:hover { -fx-background-color: #b91c1c; }
+
+.close-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #64748b;
+    -fx-font-size: 18px;
+    -fx-padding: 0 6 0 6;
+}
+.close-button:hover { -fx-text-fill: #0f172a; }
+
+/* ===== Filter chips ===== */
+.chip {
+    -fx-background-color: #eef2f7;
+    -fx-text-fill: #334155;
+    -fx-background-radius: 999;
+    -fx-padding: 6 14 6 14;
+    -fx-font-size: 13px;
+}
+.chip:hover { -fx-background-color: #e2e8f0; }
+.chip:selected { -fx-background-color: #0f172a; -fx-text-fill: white; -fx-font-weight: bold; }
+
+/* ===== Status pills (same colors in every table and panel) ===== */
+.pill {
+    -fx-background-radius: 999;
+    -fx-padding: 3 10 3 10;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+.badge-pending { -fx-background-color: #fef3c7; -fx-text-fill: #b45309; }
+.badge-in-repair { -fx-background-color: #dbeafe; -fx-text-fill: #1d4ed8; }
+.badge-resolved { -fx-background-color: #dcfce7; -fx-text-fill: #15803d; }
+.badge-rejected { -fx-background-color: #fee2e2; -fx-text-fill: #b91c1c; }
+
+/* Days left in a warranty */
+.due-urgent { -fx-text-fill: #dc2626; -fx-font-weight: bold; }
+.due-soon { -fx-text-fill: #b45309; -fx-font-weight: bold; }
+
+/* Timeline dots */
+.dot-done { -fx-fill: #16a34a; }
+.dot-current { -fx-fill: #2563eb; }
+.dot-pending { -fx-fill: #cbd5e1; }
+.dot-rejected { -fx-fill: #dc2626; }
+
+/* ===== Tables ===== */
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: #e2e8f0;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-font-size: 13px;
+}
+.table-view .column-header-background {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent #e2e8f0 transparent;
+}
+.table-view .column-header .label {
+    -fx-text-fill: #64748b;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+.table-view .column-header { -fx-background-color: transparent; }
+.table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: transparent transparent #f1f5f9 transparent;
+}
+.table-row-cell:hover { -fx-background-color: #f8fafc; }
+.table-row-cell:selected {
+    -fx-background-color: #eff6ff;
+    -fx-border-color: #93c5fd;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+}
+.table-row-cell:selected .table-cell { -fx-text-fill: #1e3a8a; }
+.table-cell { -fx-padding: 6 8 6 8; -fx-text-fill: #0f172a; -fx-border-color: transparent; }
+
+/* ===== Colorful dashboard (Panel principal) ===== */
+/* Soft lilac-to-blue background */
+.content { -fx-background-color: linear-gradient(to bottom right, #f8fafc, #e0e7ff); }
+
+/* Each KPI card has its own color: thick top stripe, tinted background, colored number */
+.kpi-blue { -fx-background-color: #eff6ff; -fx-border-color: #2563eb #bfdbfe #bfdbfe #bfdbfe; -fx-border-width: 4 1 1 1; }
+.kpi-blue .kpi-value { -fx-text-fill: #1e3a8a; }
+.kpi-green { -fx-background-color: #f0fdf4; -fx-border-color: #16a34a #bbf7d0 #bbf7d0 #bbf7d0; -fx-border-width: 4 1 1 1; }
+.kpi-green .kpi-value { -fx-text-fill: #166534; }
+.kpi-amber { -fx-background-color: #fffbeb; -fx-border-color: #f59e0b #fde68a #fde68a #fde68a; -fx-border-width: 4 1 1 1; }
+.kpi-amber .kpi-value { -fx-text-fill: #b45309; }
+.kpi-red { -fx-background-color: #fef2f2; -fx-border-color: #dc2626 #fecaca #fecaca #fecaca; -fx-border-width: 4 1 1 1; }
+.kpi-red .kpi-value { -fx-text-fill: #b91c1c; }
+
+/* Tinted table header */
+.table-view .column-header-background { -fx-background-color: #eef2ff; }
