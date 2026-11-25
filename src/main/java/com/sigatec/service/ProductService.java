@@ -64,7 +64,7 @@ public class ProductService implements ProductFinder {
     }
 
     /** Removes the product without checking warranties. Use {@link RemovalService} from outside. */
-    void delete(String serial) {
+    public void delete(String serial) {
         Product product = requireBySerial(serial);
         products.deleteById(product.getId());
     }

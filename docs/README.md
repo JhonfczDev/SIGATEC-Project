@@ -125,7 +125,7 @@ sigatec/
 ## Requisitos
 
 - Java 17 o superior
-- Sistema operativo compatible con consola (Windows, Linux o macOS)
+
 
 ---
 
