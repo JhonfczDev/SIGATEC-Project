@@ -68,7 +68,7 @@ flowchart TB
 | `repository.file` | `repository`, `model` | Implementa contratos y usa `PersistenceException` |
 | `repository.jdbc` | `repository`, `model` | Implementa los contratos con entidades |
 | `repository.file` | `data/*.txt` | Lee y escribe los archivos de datos |
-| `repository.jdbc` | base de datos SQL | **Inferida:** `Database.getConnection()` y los scripts de `database/` |
+| `repository.jdbc` | base de datos SQL | **Inferida:** `Database.getConnection()` y los scripts de `../database` |
 
 ## Cómo leerlo
 - Todo converge en `model`, que no depende de ningún otro paquete.

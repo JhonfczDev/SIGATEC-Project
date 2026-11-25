@@ -16,7 +16,7 @@ Documentos relacionados: `01-diagrama-de-paquetes.md`, `02-diagrama-de-clases-mo
 | **Repositorios: contratos** | `repository` | Definen **qué** se guarda y se busca: `Repository<T,K>` y una interfaz por entidad. Incluye `SequentialIdGenerator`, `PersistenceException` y `SeedData`. | Reglas de negocio. |
 | **Repositorios: implementaciones** | `repository.memory`, `.file`, `.jdbc` | Definen **cómo** se guarda: en memoria, en archivos de texto o en base de datos SQL. Son intercambiables. | Decidir reglas de negocio. |
 | **Arranque** | `com.sigatec` (`Main`, `Launcher`) y `ui.MainApp` | Crear los objetos concretos y conectarlos. `Main` arranca la consola; `Launcher` arranca `MainApp` (JavaFX). | Lógica de negocio. |
-| **Datos y recursos** | `data/`, `database/`, `resources/` | `data/*.txt`: persistencia en texto. `database/*.sql`: scripts SQL. `resources/com/sigatec/ui`: `app.css` e `icon.png` de la interfaz gráfica. | — |
+| **Datos y recursos** | `../data`, `../database`, `resources/` | `data/*.txt`: persistencia en texto. `database/*.sql`: scripts SQL. `resources/com/sigatec/ui`: `app.css` e `icon.png` de la interfaz gráfica. | — |
 
 ---
 
